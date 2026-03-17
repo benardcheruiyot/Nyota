@@ -1,0 +1,54 @@
+/* Modern, compact style for Swifthela Mirror */
+body {
+  background: #fafbf5;
+  font-family: 'Inter', Arial, sans-serif;
+  margin: 0;
+  color: #222;
+}
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 24px 0 0 0;
+}
+.main-card, .trust-section {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 18px 0 rgba(0,0,0,0.07);
+  padding: 0 0 0 0;
+}
+.loan-amount {
+  text-align: center;
+}
+.loan-subtext {
+  text-align: center;
+}
+.feature-badges {
+  margin: 0 auto;
+}
+.feature-badge {
+  transition: box-shadow 0.2s;
+}
+.btn-apply {
+  background: linear-gradient(90deg, #111 0%, #e62c1a 50%, #189318 100%);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+  transition: background 0.2s;
+}
+.btn-apply:hover {
+  background: linear-gradient(90deg, #222 0%, #c41c0a 50%, #0a7a2a 100%);
+}
+.trust-section {
+  margin-top: 18px;
+}
+.trust-title {
+  font-weight: 600;
+}
+.trust-badges {
+  margin: 0 auto;
+}
+.trust-badge {
+  transition: box-shadow 0.2s;
+}
+.trust-note {
+  margin-top: 8px;
+}

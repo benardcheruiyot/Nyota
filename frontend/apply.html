@@ -3,22 +3,307 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Apply - Swifthela Mirror</title>
+  <title>Apply - Swift Hela</title>
   <link rel="icon" href="icons/logo.webp">
   <link rel="stylesheet" href="style.css">
+  <style>
+        @keyframes shake {
+          0% { transform: translateX(0); }
+          20% { transform: translateX(-6px); }
+          40% { transform: translateX(6px); }
+          60% { transform: translateX(-4px); }
+          80% { transform: translateX(4px); }
+          100% { transform: translateX(0); }
+        }
+        .loan-option.shake {
+          animation: shake 0.35s cubic-bezier(.36,.07,.19,.97) both;
+        }
+    body {
+      background: #fcfdf7;
+      margin: 0;
+      font-family: 'Inter', Arial, sans-serif;
+    }
+    .apply-header {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 8px 0 rgba(0,0,0,0.07);
+      padding: 16px 24px 10px 24px;
+      margin-bottom: 18px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .kenya-bar {
+      width: 100%;
+      height: 5px;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      display: flex;
+      overflow: hidden;
+      margin-bottom: 0.3rem;
+    }
+    .kenya-bar-black { background: #111; flex: 1 1 33%; }
+    .kenya-bar-red { background: #e62c1a; flex: 1 1 34%; }
+    .kenya-bar-green { background: #189318; flex: 1 1 33%; }
+    .apply-header strong { color: #189318; }
+    .recent-loans {
+      background: #eaf7ea;
+      border-radius: 16px;
+      border-left: 3px solid #189318;
+      padding: 12px 18px 10px 18px;
+      margin-bottom: 18px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .recent-loans-title {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 1.13rem;
+      font-weight: 700;
+      color: #189318;
+      margin-bottom: 2px;
+    }
+    .recent-loans .icon-svg {
+      width: 22px;
+      height: 22px;
+      color: #189318;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .recent-loans-info {
+      color: #222;
+      font-weight: 400;
+      font-size: 1.01rem;
+      margin-left: 0;
+      margin-top: 2px;
+      text-align: left;
+      min-height: 1.4em;
+      transition: opacity 0.4s;
+    }
+    .main-card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 4px 18px 0 rgba(0,0,0,0.07);
+      max-width: 520px;
+      margin: 0 auto 32px auto;
+      padding: 0 0 24px 0;
+      overflow: visible;
+    }
+    .loan-amount-title {
+      color: #189318;
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      margin: 18px 0 0.5rem 0;
+    }
+    .loan-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px 18px;
+      justify-items: center;
+      margin: 0 0 18px 0;
+      padding: 0 18px;
+    }
+    .loan-option {
+      background: #f6f8f4;
+      border-radius: 14px;
+      padding: 18px 0 10px 0;
+      width: 100%;
+      min-width: 120px;
+      text-align: center;
+      font-weight: 700;
+      color: #189318;
+      font-size: 1.45rem;
+      box-shadow: none;
+      border: 2px solid #e0e0e0;
+      cursor: pointer;
+      transition: border 0.2s, box-shadow 0.2s;
+    }
+    .loan-option.selected, .loan-option:focus {
+      border: 2px solid #189318;
+      box-shadow: 0 2px 8px 0 rgba(24,147,24,0.08);
+      outline: none;
+    }
+    .loan-fee {
+      color: #888;
+      font-size: 1.01rem;
+      font-weight: 400;
+      margin-top: 6px;
+    }
+    @media (max-width: 700px) {
+      .main-card, .apply-header, .recent-loans { max-width: 99vw; }
+      .loan-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .loan-actions {
+      max-width: 520px;
+      margin: 0 auto 32px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.1rem;
+    }
+    .get-loan-btn {
+      width: 100%;
+      background: linear-gradient(90deg, #444 0%, #e62c1a 50%, #189318 100%);
+      color: #fff;
+      border: none;
+      border-radius: 16px;
+      padding: 0.7rem 0;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 18px 0 rgba(0,0,0,0.07);
+      margin-top: 0;
+      margin-bottom: 0.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      letter-spacing: 0.01em;
+    }
+    .get-loan-btn .arrow {
+      font-size: 1.3em;
+      margin-left: 0.7em;
+      font-weight: 700;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .get-loan-btn:active {
+      background: linear-gradient(90deg, #222 0%, #b71c1c 50%, #0c5c0c 100%);
+    }
+    .back-link {
+      color: #888;
+      text-decoration: none;
+      font-size: 1.15rem;
+      font-weight: 500;
+      display: block;
+      margin: 0.7rem auto 0 auto;
+      transition: color 0.2s;
+      text-align: center;
+      letter-spacing: 0.01em;
+    }
+    .back-link:hover {
+      color: #189318;
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-  <main class="container">
-    <section class="main-card" style="margin-bottom:32px;">
-      <h2 class="loan-amount" style="color:#189318;font-size:1.3rem;font-weight:700;margin-bottom:0.4rem;text-align:center;">Apply for a Loan</h2>
-      <form>
-        <label for="amount">Amount</label>
-        <input id="amount" name="amount" type="number" min="1000" max="50000" required>
-        <label for="purpose">Purpose</label>
-        <input id="purpose" name="purpose" type="text" required>
-        <button type="submit" class="btn-apply" style="margin-top:18px;">Apply</button>
-      </form>
+  <main>
+    <div class="apply-header">
+      <div class="kenya-bar">
+        <div class="kenya-bar-segment kenya-bar-black"></div>
+        <div class="kenya-bar-segment kenya-bar-red"></div>
+        <div class="kenya-bar-segment kenya-bar-green"></div>
+      </div>
+      <div style="margin-bottom:0.2rem;">
+        <span style="color:#222;">Hi <strong>Benard Cheruiyot</strong>, you qualify for these loan options based on your <strong>M-Pesa records</strong> (2-month term at 10% interest).</span>
+      </div>
+    </div>
+    <div class="recent-loans">
+      <div class="recent-loans-title">
+        <svg class="icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 10V14C3 15.1046 3.89543 16 5 16H7V8H5C3.89543 8 3 8.89543 3 10Z" stroke="#189318" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 8L17 4V20L7 16V8Z" stroke="#189318" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 4V20" stroke="#189318" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Recent Loans
+      </div>
+      <div class="recent-loans-info">
+        <span id="loan-carousel">0728*****01 loaned Ksh 21,300 - just now</span>
+      </div>
+    </div>
+    <section class="main-card">
+      <div class="kenya-bar">
+        <div class="kenya-bar-segment kenya-bar-black"></div>
+        <div class="kenya-bar-segment kenya-bar-red"></div>
+        <div class="kenya-bar-segment kenya-bar-green"></div>
+      </div>
+      <div class="loan-amount-title">Select Your Loan Amount</div>
+      <div class="loan-grid">
+        <div class="loan-option" tabindex="0" role="button" aria-pressed="false"><div>Ksh 5,500</div><div class="loan-fee">Fee: Ksh 100</div></div>
+        <div class="loan-option" tabindex="0" role="button" aria-pressed="false"><div>Ksh 7,000</div><div class="loan-fee">Fee: Ksh 130</div></div>
+        <div class="loan-option" tabindex="0" role="button" aria-pressed="false"><div>Ksh 8,500</div><div class="loan-fee">Fee: Ksh 170</div></div>
+        <div class="loan-option" tabindex="0" role="button" aria-pressed="false"><div>Ksh 10,000</div><div class="loan-fee">Fee: Ksh 190</div></div>
+        <div class="loan-option" tabindex="0" role="button" aria-pressed="false"><div>Ksh 12,000</div><div class="loan-fee">Fee: Ksh 230</div></div>
+        <div class="loan-option" tabindex="0" role="button" aria-pressed="false"><div>Ksh 15,000</div><div class="loan-fee">Fee: Ksh 250</div></div>
+        <div class="loan-option" tabindex="0" role="button" aria-pressed="false"><div>Ksh 18,000</div><div class="loan-fee">Fee: Ksh 270</div></div>
+        <div class="loan-option" tabindex="0" role="button" aria-pressed="false"><div>Ksh 22,000</div><div class="loan-fee">Fee: Ksh 400</div></div>
+        <div class="loan-option" tabindex="0" role="button" aria-pressed="false"><div>Ksh 27,000</div><div class="loan-fee">Fee: Ksh 470</div></div>
+        <div class="loan-option" tabindex="0" role="button" aria-pressed="false"><div>Ksh 33,000</div><div class="loan-fee">Fee: Ksh 590</div></div>
+        <div class="loan-option" tabindex="0" role="button" aria-pressed="false"><div>Ksh 40,000</div><div class="loan-fee">Fee: Ksh 730</div></div>
+        <div class="loan-option" tabindex="0" role="button" aria-pressed="false"><div>Ksh 48,000</div><div class="loan-fee">Fee: Ksh 1010</div></div>
+        <div class="loan-option" tabindex="0" role="button" aria-pressed="false"><div>Ksh 56,000</div><div class="loan-fee">Fee: Ksh 1350</div></div>
+        <div class="loan-option" tabindex="0" role="button" aria-pressed="false"><div>Ksh 63,000</div><div class="loan-fee">Fee: Ksh 1700</div></div>
+        <div class="loan-option" tabindex="0" role="button" aria-pressed="false"><div>Ksh 70,000</div><div class="loan-fee">Fee: Ksh 1950</div></div>
+      </div>
     </section>
   </main>
+  <div class="loan-actions">
+    <button class="get-loan-btn">
+      Get Loan Now <span class="arrow">&#8594;</span>
+    </button>
+    <a href="index.html" class="back-link">&#8592; Back to Home</a>
+  </div>
+  <script>
+    // Loan option selection logic with shake and scroll
+    const loanOptions = document.querySelectorAll('.loan-option');
+    const getLoanBtn = document.querySelector('.get-loan-btn');
+    loanOptions.forEach(option => {
+      option.addEventListener('click', function() {
+        loanOptions.forEach(o => {
+          o.classList.remove('selected', 'shake');
+          o.setAttribute('aria-pressed', 'false');
+        });
+        this.classList.add('selected', 'shake');
+        this.setAttribute('aria-pressed', 'true');
+        setTimeout(() => {
+          this.classList.remove('shake');
+          getLoanBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          getLoanBtn.focus({ preventScroll: true });
+          // Simulate click to redirect
+          getLoanBtn.click();
+        }, 350);
+      });
+      option.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    // Loan carousel logic
+    const loanRecords = [
+      "0728*****01 loaned Ksh 21,300 - just now",
+      "0706*****78 loaned Ksh 16,400 - just now",
+      "0712*****45 loaned Ksh 12,800 - 2 mins ago",
+      "0718*****22 loaned Ksh 18,900 - 3 mins ago",
+      "0723*****67 loaned Ksh 25,500 - 4 mins ago",
+      "0731*****33 loaned Ksh 9,700 - 5 mins ago",
+      "0702*****88 loaned Ksh 14,200 - 6 mins ago",
+      "0715*****55 loaned Ksh 22,100 - 7 mins ago",
+      "0720*****99 loaned Ksh 11,300 - 8 mins ago",
+      "0733*****12 loaned Ksh 17,800 - 9 mins ago",
+      // ...add 90+ more records for realism
+    ];
+    const safPrefixes = ["070", "071", "072", "073", "074", "075", "076", "079"];
+    for(let i=0;i<90;i++){
+      const prefix = safPrefixes[Math.floor(Math.random()*safPrefixes.length)];
+      const phone = prefix + Math.floor(Math.random()*10000000).toString().padStart(7,'0');
+      const amount = Math.floor(Math.random()*50000)+1000;
+      const mins = Math.floor(Math.random()*59)+1;
+      loanRecords.push(`${phone.slice(0,4)}*****${phone.slice(-2)} loaned Ksh ${amount.toLocaleString()} - ${mins} mins ago`);
+    }
+    let carouselIdx = 0;
+    const carouselSpan = document.getElementById('loan-carousel');
+    function showNextLoan() {
+      carouselSpan.style.opacity = 0;
+      setTimeout(() => {
+        carouselIdx = (carouselIdx + 1) % loanRecords.length;
+        carouselSpan.textContent = loanRecords[carouselIdx];
+        carouselSpan.style.opacity = 1;
+      }, 400);
+    }
+    setInterval(showNextLoan, 2200);
+  </script>
+  </script>
 </body>
 </html>

@@ -3,41 +3,145 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Swifthela Mirror</title>
+  <title>Swift Hela - Youth Empowerment Loans</title>
   <link rel="icon" href="icons/logo.webp">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="modal.css">
+  <style>
+    .kenya-bar {
+      width: 100%;
+      height: 6px;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      display: flex;
+      overflow: hidden;
+      margin-bottom: 0.3rem;
+    }
+    .kenya-bar-black { background: #111; flex: 1 1 33%; }
+    .kenya-bar-red { background: #e62c1a; flex: 1 1 34%; }
+    .kenya-bar-green { background: #189318; flex: 1 1 33%; }
+    .brand-title {
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 0.7rem;
+      letter-spacing: 0.01em;
+    }
+    .brand-subtitle {
+      text-align: center;
+      color: #888;
+      font-size: 1.05rem;
+      margin-bottom: 1.2rem;
+    }
+    .main-card {
+      margin-bottom: 32px;
+      padding: 24px 18px 18px 18px;
+    }
+    .feature-badges {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 16px;
+      justify-items: center;
+      margin: 18px 0 18px 0;
+    }
+    .feature-badge {
+      background: #f1f8f4;
+      border-radius: 11px;
+      padding: 15px 0;
+      width: 97%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      font-weight: 700;
+      color: #0a7a2a;
+      font-size: 0.98rem;
+    }
+    .cta-section {
+      margin-bottom: 32px;
+    }
+    .btn-apply {
+      font-size: 1.08rem;
+      font-weight: 800;
+      padding: 14px 0;
+      display: block;
+      text-align: center;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+    }
+    .trust-section {
+      margin-bottom: 32px;
+      padding: 18px 18px 10px 18px;
+    }
+    .trust-title {
+      text-align: center;
+      color: #888;
+      font-size: 0.92rem;
+      margin-bottom: 8px;
+    }
+    .trust-badges {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 14px;
+      justify-items: center;
+    }
+    .trust-badge {
+      background: #f1f8f4;
+      border-radius: 11px;
+      padding: 11px 0;
+      width: 97%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      font-weight: 700;
+      color: #0a7a2a;
+      font-size: 0.98rem;
+    }
+    .trust-note {
+      text-align: center;
+      color: #888;
+      font-size: 0.89rem;
+      margin-top: 8px;
+      font-weight: 500;
+    }
+  </style>
 </head>
 <body>
   <main class="container" aria-labelledby="main-title">
-    <section class="main-card" aria-labelledby="loan-amount-title" style="margin-bottom:32px;">
-      <h2 class="loan-amount" id="loan-amount-title" style="color:#189318;font-size:1.7rem;font-weight:700;margin-bottom:0.4rem;">Ksh. 1,000 - 50,000</h2>
-      <div class="loan-subtext" style="color:#666;font-size:0.95rem;margin-bottom:0.9rem;font-weight:500;">Youth empowerment financing available nationwide</div>
-      <div class="feature-badges" style="display:grid;grid-template-columns:1fr 1fr;gap:12px 14px;justify-items:center;margin:12px 0 12px 0;">
-        <div class="feature-badge" style="background:#f1f8f4;border-radius:11px;padding:15px 0;width:97%;display:flex;align-items:center;justify-content:center;gap:9px;font-weight:700;color:#0a7a2a;font-size:0.98rem;"><img src="icons/bolt.svg" alt="Fast approval" class="icon-svg" style="width:20px;height:20px;"> Fast approval</div>
-        <div class="feature-badge" style="background:#f1f8f4;border-radius:11px;padding:15px 0;width:97%;display:flex;align-items:center;justify-content:center;gap:9px;font-weight:700;color:#0a7a2a;font-size:0.98rem;"><img src="icons/phone.svg" alt="Paperless" class="icon-svg" style="width:20px;height:20px;"> Paperless</div>
-        <div class="feature-badge" style="background:#f1f8f4;border-radius:11px;padding:15px 0;width:97%;display:flex;align-items:center;justify-content:center;gap:9px;font-weight:700;color:#0a7a2a;font-size:0.98rem;"><img src="icons/shield.svg" alt="Secure" class="icon-svg" style="width:20px;height:20px;"> Secure</div>
-        <div class="feature-badge" style="background:#f1f8f4;border-radius:11px;padding:15px 0;width:97%;display:flex;align-items:center;justify-content:center;gap:9px;font-weight:700;color:#0a7a2a;font-size:0.98rem;"><img src="icons/user.svg" alt="Youth-focused" class="icon-svg" style="width:20px;height:20px;"> Youth-focused</div>
+    <div class="kenya-bar">
+      <div class="kenya-bar-black"></div>
+      <div class="kenya-bar-red"></div>
+      <div class="kenya-bar-green"></div>
+    </div>
+    <div class="brand-title">Kuza, Imarisha, Endeleza Vijana!</div>
+    <section class="main-card" aria-labelledby="loan-amount-title">
+      <h2 class="loan-amount" id="loan-amount-title" style="color:#189318;font-size:2rem;font-weight:800;margin-bottom:0.4rem;">Ksh. 1,000 - 50,000</h2>
+      <div class="loan-subtext" style="color:#666;font-size:1.05rem;margin-bottom:0.9rem;font-weight:500;">Youth empowerment financing available nationwide</div>
+      <div class="feature-badges">
+        <div class="feature-badge"><span style="font-size:1.2em;">⚡</span> Fast approval</div>
+        <div class="feature-badge"><span style="font-size:1.2em;">📱</span> Paperless</div>
+        <div class="feature-badge"><span style="font-size:1.2em;">🛡️</span> Secure</div>
+        <div class="feature-badge"><span style="font-size:1.2em;">🧑‍🎓</span> Youth-focused</div>
       </div>
     </section>
-    <section class="cta-section" style="margin-bottom:32px;">
-      <a href="eligibility.html" class="btn-apply" aria-label="Apply for a loan" style="font-size:1.08rem;font-weight:800;padding:14px 0;display:block;text-align:center;color:#fff;text-decoration:none;letter-spacing:0.5px;">
+    <section class="cta-section">
+      <a href="eligibility.html" class="btn-apply" aria-label="Apply for a loan">
         Apply Now <span class="arrow" aria-hidden="true">→</span>
       </a>
     </section>
-    <section class="trust-section" aria-labelledby="trust-title" style="margin-bottom:32px;">
-      <div class="trust-title" id="trust-title" style="text-align:center;color:#888;font-size:0.92rem;margin-bottom:8px;">Your security is our priority</div>
-      <div class="trust-badges" aria-label="Trust Badges" style="display:grid;grid-template-columns:1fr 1fr;gap:12px 14px;justify-items:center;">
-        <div class="trust-badge" style="background:#f1f8f4;border-radius:11px;padding:11px 0;width:97%;display:flex;align-items:center;justify-content:center;gap:9px;font-weight:700;color:#0a7a2a;font-size:0.98rem;"><img src="icons/lock.svg" alt="SSL Secured" class="icon-svg" style="width:18px;height:18px;"> SSL Secured</div>
-        <div class="trust-badge" style="background:#f1f8f4;border-radius:11px;padding:11px 0;width:97%;display:flex;align-items:center;justify-content:center;gap:9px;font-weight:700;color:#0a7a2a;font-size:0.98rem;"><img src="icons/badge.svg" alt="Licensed Program" class="icon-svg" style="width:18px;height:18px;"> Licensed Program</div>
-        <div class="trust-badge" style="background:#f1f8f4;border-radius:11px;padding:11px 0;width:97%;display:flex;align-items:center;justify-content:center;gap:9px;font-weight:700;color:#0a7a2a;font-size:0.98rem;"><img src="icons/data.svg" alt="Data Protected" class="icon-svg" style="width:18px;height:18px;"> Data Protected</div>
-        <div class="trust-badge" style="background:#f1f8f4;border-radius:11px;padding:11px 0;width:97%;display:flex;align-items:center;justify-content:center;gap:9px;font-weight:700;color:#0a7a2a;font-size:0.98rem;"><img src="icons/group.svg" alt="Trusted" class="icon-svg" style="width:18px;height:18px;"> Trusted</div>
+    <section class="trust-section" aria-labelledby="trust-title">
+      <div class="trust-title" id="trust-title">Your security is our priority</div>
+      <div class="trust-badges" aria-label="Trust Badges">
+        <div class="trust-badge"><span style="font-size:1.1em;">🔒</span> SSL Secured</div>
+        <div class="trust-badge"><span style="font-size:1.1em;">🌟</span> Licensed Program</div>
+        <div class="trust-badge"><span style="font-size:1.1em;">🗄️</span> Data Protected</div>
+        <div class="trust-badge"><span style="font-size:1.1em;">👥</span> Trusted</div>
       </div>
-      <div class="trust-note" style="text-align:center;color:#888;font-size:0.89rem;margin-top:8px;font-weight:500;">Empowering thousands of Kenyan youth</div>
+      <div class="trust-note">Empowering thousands of Kenyan youth</div>
     </section>
   </main>
 </body>
-<script>
-</script>
 </html>
-<!-- force update for git tracking -->

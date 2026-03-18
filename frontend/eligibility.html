@@ -3,24 +3,226 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eligibility - Swifthela Mirror</title>
+  <title>Eligibility - Swift Hela</title>
   <link rel="icon" href="icons/logo.webp">
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #eaf7ea 0%, #fafbf5 100%);
+      font-family: 'Inter', Arial, sans-serif;
+      margin: 0;
+      color: #222;
+    }
+    .centered-container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 32px 8px;
+    }
+    .eligibility-card {
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 8px 32px 0 rgba(24,147,24,0.13), 0 2px 8px 0 rgba(0,0,0,0.04);
+      padding: 0 0 32px 0;
+      max-width: 440px;
+      width: 100%;
+      margin: 0 auto;
+      position: relative;
+      animation: fadeInUp 0.7s cubic-bezier(.36,.07,.19,.97);
+      overflow: hidden;
+      border: 1.5px solid #eaf7ea;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .kenya-bar-card {
+      width: 100%;
+      height: 14px;
+      display: flex;
+      border-radius: 24px 24px 0 0;
+      overflow: hidden;
+      margin-bottom: 0;
+      box-shadow: 0 2px 8px 0 rgba(24,147,24,0.07);
+    }
+    .kenya-bar-black { background: #111; flex: 1 1 33%; }
+    .kenya-bar-red { background: #e62c1a; flex: 1 1 34%; }
+    .kenya-bar-green { background: #189318; flex: 1 1 33%; }
+    .card-content {
+      padding: 40px 32px 0 32px;
+    }
+    .brand-title {
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #189318;
+      margin-bottom: 0.2rem;
+      letter-spacing: 0.01em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5em;
+    }
+    .brand-title .icon {
+      font-size: 1.7em;
+      vertical-align: middle;
+      filter: drop-shadow(0 2px 4px #eaf7ea);
+    }
+    .brand-subtitle {
+      text-align: center;
+      color: #222;
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+    .brand-desc {
+      text-align: center;
+      color: #888;
+      font-size: 1.12rem;
+      margin-bottom: 1.1rem;
+    }
+    .loan-amount {
+      text-align: center;
+      color: #189318;
+      font-size: 1.18rem;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+    }
+    .eligibility-form {
+      margin-top: 22px;
+    }
+    .eligibility-form label {
+      display: block;
+      margin-bottom: 0.2rem;
+      color: #189318;
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+    .eligibility-form input, .eligibility-form select {
+      width: 100%;
+      padding: 15px 13px;
+      margin-bottom: 20px;
+      border: 1.5px solid #e0e0e0;
+      border-radius: 11px;
+      font-size: 1.12rem;
+      background: #f8faf6;
+      outline: none;
+      transition: border 0.2s, box-shadow 0.2s;
+      box-shadow: 0 1.5px 6px 0 rgba(24,147,24,0.03);
+    }
+    .eligibility-form input:focus, .eligibility-form select:focus {
+      border: 1.5px solid #189318;
+      box-shadow: 0 0 0 2px #eaf7ea;
+    }
+    .eligibility-badges {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin: 22px 0 12px 0;
+    }
+    .eligibility-badge {
+      background: #eaf7ea;
+      border-radius: 12px;
+      padding: 9px 18px;
+      font-size: 1.08rem;
+      color: #189318;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      box-shadow: 0 1px 4px 0 rgba(24,147,24,0.07);
+    }
+    .eligibility-btn-wrapper {
+      width: 100%;
+      border-radius: 14px;
+      overflow: hidden;
+      margin-top: 22px;
+      box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+    }
+    .btn-apply {
+      width: 100%;
+      font-size: 1.22rem;
+      font-weight: 900;
+      padding: 17px 0 17px 0;
+      border: none;
+      cursor: pointer;
+      border-radius: 14px;
+      margin-bottom: 0;
+      background: linear-gradient(90deg, #111 0%, #e62c1a 50%, #189318 100%);
+      color: #fff;
+      letter-spacing: 0.5px;
+      transition: background 0.2s, transform 0.1s;
+      box-shadow: 0 1.5px 6px 0 rgba(24,147,24,0.07);
+    }
+    .btn-apply:hover {
+      background: linear-gradient(90deg, #222 0%, #c41c0a 50%, #0a7a2a 100%);
+      transform: translateY(-2px) scale(1.01);
+    }
+    .note {
+      text-align: center;
+      color: #888;
+      font-size: 1.08rem;
+      margin-top: 20px;
+    }
+    @media (max-width: 600px) {
+      .eligibility-card {
+        padding: 0 4vw 18px 4vw;
+      }
+      .card-content {
+        padding: 18px 4vw 0 4vw;
+      }
+      .brand-title {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <main class="container">
-    <section class="main-card" style="margin-bottom:32px;">
-      <h2 class="loan-amount" style="color:#189318;font-size:1.3rem;font-weight:700;margin-bottom:0.4rem;text-align:center;">Check Eligibility</h2>
-      <form>
-        <label for="age">Age</label>
-        <input id="age" name="age" type="number" min="18" max="35" required>
-        <label for="id">National ID</label>
-        <input id="id" name="id" type="text" required>
-        <label for="county">County</label>
-        <input id="county" name="county" type="text" required>
-        <button type="submit" class="btn-apply" style="margin-top:18px;">Check</button>
-      </form>
+  <div class="centered-container">
+    <section class="eligibility-card">
+      <div class="kenya-bar-card">
+        <div class="kenya-bar-black"></div>
+        <div class="kenya-bar-red"></div>
+        <div class="kenya-bar-green"></div>
+      </div>
+      <div class="card-content">
+        <div class="brand-title"><span class="icon">💸</span> Swift Hela</div>
+        <div class="brand-subtitle">Check Your Loan Eligibility</div>
+        <div class="brand-desc">Find out how much you qualify for</div>
+        <div class="loan-amount">Ksh. 1,000 – 50,000</div>
+        <form class="eligibility-form" id="eligibilityForm">
+          <label for="fullname">Full Name</label>
+          <input id="fullname" name="fullname" type="text" placeholder="Enter your full name" required>
+          <label for="phone">Phone Number</label>
+          <input id="phone" name="phone" type="tel" placeholder="07XXXXXXXX" required>
+          <label for="id">ID Number</label>
+          <input id="id" name="id" type="text" placeholder="National ID" required>
+          <label for="loan-type">Loan Type</label>
+          <select id="loan-type" name="loan-type" required>
+            <option value="">Select loan type</option>
+            <option value="business">Business Loan</option>
+            <option value="education">Education Loan</option>
+            <option value="personal">Personal Loan</option>
+          </select>
+          <div class="eligibility-badges">
+            <div class="eligibility-badge"><span style="font-size:1.1em;">🔒</span> Secure Application</div>
+            <div class="eligibility-badge"><span style="font-size:1.1em;">👥</span> No CRB Check</div>
+          </div>
+          <div class="eligibility-btn-wrapper">
+            <button type="submit" class="btn-apply">Check Eligibility <span aria-hidden="true">→</span></button>
+          </div>
+        </form>
+        <div class="note">No paperwork required. No guarantors needed.</div>
+      </div>
     </section>
-  </main>
+  </div>
+  <script>
+    document.getElementById('eligibilityForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      window.location.href = 'apply.html';
+    });
+  </script>
 </body>
 </html>
